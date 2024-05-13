@@ -17,12 +17,12 @@ def get_directions(grid)
   end
 end
 
-m = gets.to_i
+# m = gets.to_i
 
-grid = Array.new(m)
+# grid = Array.new(m)
 
-(0...m).each do |i|
-  grid[i] = gets.strip
-end
+# (0...m).each do |i|
+#   grid[i] = gets.strip
+# end
 
-displayPathtoPrincess(m,grid)
+# displayPathtoPrincess(m,grid)
