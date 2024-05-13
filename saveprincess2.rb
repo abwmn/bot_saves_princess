@@ -1,11 +1,10 @@
 #!/bin/ruby
 
 def nextMove(n,r,c,grid)
-  peach_coordinates = find_peach(grid)
-  print get_direction(mario_row: r, mario_col: c, **peach_coordinates)
+  print get_direction(mario_row: r, mario_col: c, **peach_position(grid))
 end
 
-def find_peach(grid)
+def peach_position(grid)
   grid.each_with_index do |chars, row|
       col = chars.index("p")
       return {:peach_row => row, :peach_col => col} if col
