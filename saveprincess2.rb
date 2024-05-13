@@ -24,13 +24,13 @@ def row_move(peach_row, mario_row)
 end
 
 
-n = gets.to_i
-r,c = gets.strip.split.map {|num| num.to_i}
+# n = gets.to_i
+# r,c = gets.strip.split.map {|num| num.to_i}
 
-grid = Array.new(n)
+# grid = Array.new(n)
 
-(0...n).each do |i|
-    grid[i] = gets
-end
+# (0...n).each do |i|
+#     grid[i] = gets
+# end
 
-nextMove(n,r,c,grid)
+# nextMove(n,r,c,grid)
