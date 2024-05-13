@@ -6,14 +6,14 @@ end
 
 def get_directions(grid)
   case "p"
-    when grid[0][0]
-      "UP\nLEFT\n"
-    when grid[0][-1]
-      "UP\nRIGHT\n"
-    when grid[-1][0]
-      "DOWN\nLEFT\n"
-    when grid[-1][-1]
-      "DOWN\nRIGHT\n"
+  when grid[0][0]
+    "UP\nLEFT\n"
+  when grid[0][-1]
+    "UP\nRIGHT\n"
+  when grid[-1][0]
+    "DOWN\nLEFT\n"
+  when grid[-1][-1]
+    "DOWN\nRIGHT\n"
   end
 end
 
