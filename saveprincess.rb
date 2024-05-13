@@ -1,8 +1,7 @@
 #!/bin/ruby
 
 def displayPathtoPrincess(n,grid)
-    directions = get_directions(grid)
-    print directions * (n/2)
+    print get_directions(grid) * (n/2)
 end
 
 def get_directions(grid)
@@ -25,5 +24,3 @@ grid = Array.new(m)
 (0...m).each do |i|
   grid[i] = gets.strip
 end
-
-displayPathtoPrincess(m,grid)
