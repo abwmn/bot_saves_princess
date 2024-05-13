@@ -1,31 +1,29 @@
 #!/bin/ruby
 
 def nextMove(n,r,c,grid)
-  peach = find_peach(grid)
-  direction = get_direction(peach, r, c)
-  print direction
+  peach_coordinates = find_peach(grid)
+  print get_direction(mario_row: r, mario_col: c, **peach_coordinates)
 end
 
 def find_peach(grid)
   grid.each_with_index do |chars, row|
       col = chars.index("p")
-      return {:row => row, :col => col} if col
+      return {:peach_row => row, :peach_col => col} if col
   end
 end
 
-def get_direction(peach, mario_row, mario_col)
-  leftright = leftright(peach[:col], mario_col)
-  leftright ? leftright : updown(peach[:row], mario_row)
+def get_direction(peach_row:, peach_col:, mario_row:, mario_col:)
+  leftright = leftright(peach_col, mario_col)
+  leftright ? leftright : updown(peach_row, mario_row)
 end
 
 def leftright(peach_col, mario_col)
   diff = mario_col - peach_col
-  diff == 0 ? nil : (diff > 0 ? "LEFT" : "RIGHT")
+  diff > 0 ? "LEFT" : ( diff < 0 ? "RIGHT" : nil )
 end
 
 def updown(peach_row, mario_row)
-  diff = mario_row - peach_row
-  diff > 0 ? "UP" : "DOWN"
+  mario_row - peach_row > 0 ? "UP" : "DOWN"
 end
 
 
