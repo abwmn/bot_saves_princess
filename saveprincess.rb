@@ -1,25 +1,27 @@
 #!/bin/ruby
 
 def displayPathtoPrincess(n,grid)
-    peach_coordinates, mario_coordinates = nil, nil
+    peach, mario = nil, nil
   
     grid.each_with_index do |row, y|
-        row.each_char.with_index do |char, x|
-            next if char == "-"
-            if char == "p"
-                peach_coordinates = [x, y] 
-            elsif char == "m"
-                mario_coordinates = [x, y]
-            end
-            break if peach_coordinates && mario_coordinates
+        unless peach
+          peach = row.index("p") 
+          peach = [peach, y] if peach
         end
+
+        unless mario
+          mario = row.index("m")
+          mario = [mario, y] if mario
+        end
+
+        break if peach && mario
     end
   
-    xdiff = mario_coordinates[0] - peach_coordinates[0]
-    ydiff = mario_coordinates[1] - peach_coordinates[1]
+    dx = mario[0] - peach[0]
+    dy = mario[1] - peach[1]
   
-    xdiff > 0 ? xdiff.times { print "LEFT\n" } : xdiff.abs.times { print "RIGHT\n" }
-    ydiff > 0 ? ydiff.times { print "UP\n" } : ydiff.abs.times { print "DOWN\n" }
+    dx > 0 ? dx.times { print "LEFT\n" } : dx.abs.times { print "RIGHT\n" }
+    dy > 0 ? dy.times { print "UP\n" } : dy.abs.times { print "DOWN\n" }
 end
 
 m = gets.to_i
