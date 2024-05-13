@@ -3,7 +3,7 @@ require './saveprincess'
 RSpec.describe "Bot Saves Princess Solution" do
 
   def grid(n=3)
-    Array.new(n, n * "-")
+    Array.new(n, "-" * n)
   end
 
   def topleft(grid)
