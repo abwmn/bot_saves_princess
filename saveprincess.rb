@@ -1,20 +1,18 @@
 #!/bin/ruby
 
 def displayPathtoPrincess(n,grid)
-    corners = [grid[0][0], grid[0][-1], grid[-1][0], grid[-1][-1]]
-    peach_corner = corners.find_index("p")
-    xmove, ymove = case peach_corner
-        when 0
-            ["LEFT\n", "UP\n"]
-        when 1
-            ["RIGHT\n", "UP\n"]
-        when 2 
-            ["LEFT\n", "DOWN\n"]
-        when 3
-            ["RIGHT\n", "DOWN\n"]
+    directions = case "p"
+      when grid[0][0]
+        "UP\nLEFT\n"
+      when grid[0][-1]
+        "UP\nRIGHT\n"
+      when grid[-1][0]
+        "DOWN\nLEFT\n"
+      when grid[-1][-1]
+        "DOWN\nRIGHT\n"
     end
-    
-    (n/2).times { print xmove + ymove }
+
+    print directions * (n/2)
 end
 
 m = gets.to_i
