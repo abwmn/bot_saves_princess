@@ -1,28 +1,35 @@
 #!/bin/ruby
 
 def nextMove(n,r,c,grid)
-  peach_col, peach_row = nil, nil
-    
+  peach = find_peach(grid)
+  direction = pick_direction(peach, r, c)
+  print direction
+end
+
+def find_peach(grid)
   grid.each_with_index do |row, y|
       x = row.index("p")
-      if x
-          peach_col, peach_row = x, y
-          break
-      end
+      return [x, y] if x
   end
-    
-  dx, dy = c - peach_col, r - peach_row
-    
+end
+
+def pick_direction(peach, r, c)
+  dx = c - peach[0]
+  
   if dx > 0
-      print "LEFT"
+    return "LEFT"
   elsif dx < 0 
-      print "RIGHT"
-  elsif dy > 0
-      print "UP"
+    return "RIGHT"
+  end
+
+  dy = r - peach[1]
+
+  if dy > 0
+    "UP"
   elsif dy < 0
-      print "DOWN"
+    "DOWN"
   else
-      print "PRINCESS PEACH, IT'S A ME, MARIO!!"
+    "PRINCESS PEACH, IT'S A ME, MARIO!!"
   end
 end
 
