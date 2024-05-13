@@ -13,22 +13,19 @@ def find_peach(grid)
 end
 
 def get_direction(peach_row:, peach_col:, mario_row:, mario_col:)
-  leftright = leftright(peach_col, mario_col)
-  leftright ? leftright : updown(peach_row, mario_row)
+  peach_col == mario_col ? row_move(peach_row, mario_row) : col_move(peach_col, mario_col)
 end
 
-def leftright(peach_col, mario_col)
-  diff = mario_col - peach_col
-  diff > 0 ? "LEFT" : ( diff < 0 ? "RIGHT" : nil )
+def col_move(peach_col, mario_col)
+  mario_col - peach_col > 0 ? "LEFT" : "RIGHT"
 end
 
-def updown(peach_row, mario_row)
+def row_move(peach_row, mario_row)
   mario_row - peach_row > 0 ? "UP" : "DOWN"
 end
 
 
 n = gets.to_i
-
 r,c = gets.strip.split.map {|num| num.to_i}
 
 grid = Array.new(n)
