@@ -7,7 +7,7 @@
 
 ## Introduction
 
-This repo contains solutions for the Hacker Rank [Bot Saves Princess](https://www.hackerrank.com/challenges/saveprincess2) [challenges](https://www.hackerrank.com/challenges/saveprincess2), as well as a simple test suite for checking results locally. I had a blast designing and optimizing these solutions to be both efficient and readable. I encountered the most difficulty not in the solutions themselves, but in my local Ruby environment, which despite my persistent reinstallation and configuration efforts, was not cooperating in a timely manner. I had to try a different approach, so I opted to try Docker as a solution to my configuration woes. Although I hadn't made my own Dockerfile before, I was able to get one spun up pretty quickly and easily, and greatly appreciate the simple and powerful functionality it afforded me. After submitting the Hacker Rank solutions in main as my MVP, I went ahead and did a playable terminal version in the "extension" branch to showcase some OOP functionality.
+This repo contains solutions for the Hacker Rank [Bot Saves Princess](https://www.hackerrank.com/challenges/saveprincess2) [challenges](https://www.hackerrank.com/challenges/saveprincess2), as well as a simple test suite for checking results locally. I had a blast designing and optimizing these solutions to be both efficient and readable. I encountered the most difficulty not in the solutions themselves, but in my local Ruby environment, which despite my persistent reinstallation and configuration efforts, was not cooperating in a timely manner. I had to try a different approach, so I opted to try Docker as a solution to my configuration woes. Although I hadn't made my own Dockerfile before, I was able to get one spun up pretty quickly and easily, and greatly appreciate the simple and powerful functionality it afforded me. After submitting the Hacker Rank solutions in main as my MVP, I went ahead and did a playable terminal version in the "extension" branch to showcase some OOP functionality. 
 
 
 ## The Solutions
@@ -137,10 +137,7 @@ def nextMove(n,r,c,grid)
   print get_direction(mario_row: r, mario_col: c, **peach_position(grid))
 end
 ```
-
-#### Using The Dockerfile
-
-If you're not set up to run ruby on your computer, Docker makes it easy by providing a container that can handle anything. 
+#### Running the Test Suite and Terminal Game
 
 First, clone this repo and cd into the root directory:
 
@@ -148,7 +145,19 @@ First, clone this repo and cd into the root directory:
 
 `cd bot_saves_princess`
 
-Next, run the following command to create the Docker image:
+By default you will be in the main branch, where you can run the Hacker Rank test suite with:
+
+`bundle exec rspec spec/`
+
+If you checkout the extension branch, you can run the terminal game with:
+
+`ruby runner.rb`
+
+#### Using The Dockerfile
+
+If you're not set up to run ruby on your computer, Docker makes it easy by providing a container that can handle anything. 
+
+In the project directory, run the following command to create the Docker image:
 
 `docker build -t andrew-code-challenge .`
 
