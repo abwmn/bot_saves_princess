@@ -1,5 +1,5 @@
-require './lib/board.rb'
-require './lib/game.rb'
+require_relative 'board'
+require_relative 'game'
 
 def welcome
   puts "WELCOME TO MARIO'S GROUNDHOG DAY!\n\n"

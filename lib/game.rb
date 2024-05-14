@@ -1,4 +1,4 @@
-require './lib/board.rb'
+require_relative 'board'
 
 class Game
   attr_reader :board, :moves
