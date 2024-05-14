@@ -22,7 +22,7 @@ def play_or_quit
     yesorno = gets.chomp
   end
 
-  yesorno == "y" || "Y" ? play : quit
+  yesorno == ("y" || "Y") ? play : quit
 end
 
 def play
