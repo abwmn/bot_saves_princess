@@ -1,3 +1,5 @@
+require './lib/board.rb'
+
 class Game
   attr_reader :board, :moves
 
@@ -15,7 +17,7 @@ class Game
       @board.render
       puts "Last move: " + move + "!"
       puts "Moves made: " + @moves
-      sleep(.2)
+      sleep(0.2)
     end
     @board.render
     puts "Mario: PRINCESS PEACH! IT'S A ME, MARIO!"

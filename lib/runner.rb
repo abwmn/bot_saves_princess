@@ -1,13 +1,13 @@
-require 'board'
-require 'game'
+require './lib/board.rb'
+require './lib/game.rb'
 
 def welcome
   puts "WELCOME TO MARIO'S GROUNDHOG DAY!\n\n"
   sleep(1)
   puts "Watch Mario save the princess from grids of various sizes!"
-  sleep(.5)
+  sleep(0.5)
   puts "You will witness Mario venture from the center of a grid to a corner to save his Queen,"
-  sleep(.5)
+  sleep(0.5)
   puts "or he may seek her out from random positions. No matter where Peach awaits him..."
   sleep(1)
   puts "...Mario never fails! Just watch!\n"
