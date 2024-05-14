@@ -8,4 +8,4 @@ RUN bundle install
 
 COPY . .
 
-CMD ["bundle", "exec", "rspec", "spec/"]
+CMD ["ruby", "runner.rb"]
