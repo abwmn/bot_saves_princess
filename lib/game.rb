@@ -36,7 +36,7 @@ class Game
     mario[:col] - peach[:col] > 0 ? "LEFT" : "RIGHT"
   end
   
-  def row_move(peach_row, mario_row)
+  def row_move(mario, peach)
     mario[:row] - peach[:row] > 0 ? "UP" : "DOWN"
   end
 end
