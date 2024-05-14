@@ -4,7 +4,7 @@ require_relative 'game'
 def welcome
   puts "\e[H\e[2J"
   puts "WELCOME TO MARIO'S GROUNDHOG DAY!\n\n"
-  sleep(1.5)
+  sleep(1)
   puts "Watch Mario save the princess from grids of various sizes!"
   sleep(1)
   puts "You will witness Mario venture from the center of a grid to a corner to save his Queen,"
@@ -17,12 +17,10 @@ end
 
 def play_or_quit
   puts "Watch a game? (Y/N)\n"
-
   yesorno = nil
   until ["y", "Y", "n", "N"].include?(yesorno)
     yesorno = gets.chomp
   end
-
   yesorno == ("y" || "Y") ? play : quit
 end
 
@@ -32,14 +30,10 @@ def play
   board.displayPathtoPrincess
   puts "Mario: PRINCESS PEACH! IT'S A ME, MARIO!"
   sleep(1)
-  puts "I found you in #{board.moves.length} moves!"
-  sleep(1)
   board.place_peach
   board.render
   puts "Mario: PRINCESS PEACH! IT'S A ME, MARIO!"
-  puts "I found you in #{board.moves.length} moves!"
-  puts "Peach: OH MARIO! I KNEW I COULD COUNT ON YOU TO FIND ME IN THE OPTIMAL NUMBER OF MOVES!\n"
-  puts "Thanks for watching!"
+  puts "Peach: OH MARIO! I KNEW I COULD COUNT ON YOU!\n"
   play_or_quit
 end
 
