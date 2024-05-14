@@ -22,6 +22,7 @@ module Movable
   end
 
   def move_mario(move)
+    @moves ||= []
     @moves.push(move)
     hide_mario
     case move

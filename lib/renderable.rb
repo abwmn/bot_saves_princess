@@ -1,4 +1,9 @@
 module Renderable
+  def make_grid
+    @grid = Array.new(@size) { "-" * @size }
+    place_chars
+  end
+
   def place_peach
     @grid[@peach[:row]][@peach[:col]] = "p"
   end
