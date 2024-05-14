@@ -4,13 +4,13 @@ require_relative 'game'
 def welcome
   puts "\e[H\e[2J"
   puts "WELCOME TO MARIO'S GROUNDHOG DAY!\n\n"
-  sleep(2)
+  sleep(1.5)
   puts "Watch Mario save the princess from grids of various sizes!"
   sleep(1)
   puts "You will witness Mario venture from the center of a grid to a corner to save his Queen,"
   sleep(1)
   puts "or he may seek her out from random positions. No matter where Peach awaits him..."
-  sleep(2)
+  sleep(1)
   puts "...Mario never fails! Just watch!\n"
   play_or_quit
 end

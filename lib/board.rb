@@ -1,57 +1,46 @@
 class Board
-  attr_reader :size, :grid
+  attr_reader :size, :grid, :mode, :moves 
   attr_accessor :peach, :mario
   
   def initialize(mode)
-    if mode == "Random" 
-      @size = rand(2..49)
-      make_random_grid(@size)
-    else
-      @size = (1..24).map { |i| i * 2 + 1 }.sample
-      make_corner_grid(@size)
-    end
-  end
-
-  def make_random_grid(size)
-    @grid = generate_grid(size)
-    place_random
-  end
-
-  def make_corner_grid(size)
-    @grid = generate_grid(size)
-    place_corner
+    @mode = mode
+    @size = (mode == "Random" ? rand(2..49) : 
+                      (1..24).map { |i| i * 2 + 1 }.sample)
+    @grid = generate_grid(@size)
+    @moves = []
+    place_chars
   end
 
   def generate_grid(size)
     Array.new(@size) { "-" * @size }
   end
-  
-  def place_random
-    @peach = @mario = pick_spot
+
+  def place_chars
+    @mode == "Random" ? pick_random : pick_corner
     place_peach
+    place_mario
+  end
+  
+  def pick_random
+    @peach = @mario = pick_spot
     until @mario != @peach
       @mario = pick_spot
     end
-    place_mario
   end
 
   def pick_spot
     { row: rand(0...@size), col: rand(0...@size) }
   end
 
-  def place_corner
-    edge = @size - 1
+  def pick_corner
+    edge, center = @size - 1, @size / 2
     @peach = { row: [0, edge].sample, col: [0, edge].sample }
-    place_peach
-    
-    center = @size / 2
     @mario = { row: center, col: center }
-    place_mario
   end
 
-  def move_mario(direction)
+  def move_mario(move)
     hide(@mario)
-    case direction
+    case move
     when "UP"
       @mario[:row] -= 1
     when "DOWN"
@@ -62,6 +51,7 @@ class Board
       @mario[:col] += 1
     end
     place_mario
+    @moves.push(move)
   end
 
   def hide(char)
@@ -84,5 +74,13 @@ class Board
     puts "\e[H\e[2J"
     @grid.each { |row| puts row }
     puts "\n"
+    display_stats
+  end
+
+  def display_stats
+    puts "Mode: #{@mode}"
+    puts "Size: #{@size}"
+    puts "Last move: #{@moves.last}!"
+    puts "Moves made: #{@moves.length}"
   end
 end
