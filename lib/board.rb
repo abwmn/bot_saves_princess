@@ -2,10 +2,7 @@ class Board
   attr_reader :size, :grid, :mode, :moves 
   attr_accessor :peach, :mario
   
-  def initialize(mode)
-    @mode = mode
-    @size = (mode == "Random" ? rand(2..49) : 
-                      (1..24).map { |i| i * 2 + 1 }.sample)
+  def initialize
     @grid = generate_grid(@size)
     @moves = []
     place_chars
@@ -13,29 +10,6 @@ class Board
 
   def generate_grid(size)
     Array.new(@size) { "-" * @size }
-  end
-
-  def place_chars
-    @mode == "Random" ? pick_random : pick_corner
-    place_peach
-    place_mario
-  end
-  
-  def pick_random
-    @peach = @mario = pick_spot
-    until @mario != @peach
-      @mario = pick_spot
-    end
-  end
-
-  def pick_spot
-    { row: rand(0...@size), col: rand(0...@size) }
-  end
-
-  def pick_corner
-    edge, center = @size - 1, @size / 2
-    @peach = { row: [0, edge].sample, col: [0, edge].sample }
-    @mario = { row: center, col: center }
   end
 
   def move_mario(move)
