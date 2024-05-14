@@ -1,5 +1,5 @@
-require_relative 'board'
-require_relative 'game'
+require './lib/board'
+require './lib/game'
 
 def welcome
   puts "\e[H\e[2J"
