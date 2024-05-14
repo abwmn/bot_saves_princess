@@ -22,10 +22,12 @@ class Game
     @board.render
     puts "Mario: PRINCESS PEACH! IT'S A ME, MARIO!"
     puts "I found you in #{@moves} moves!"
-    sleep(1)
+    sleep(3)
     @board.place_peach
     @board.render
-    puts "Peach: OH MARIO! I KNEW I COULD COUNT ON YOU TO FIND ME IN THE OPTIMAL NUMBER OF MOVES!"
+    puts "Mario: PRINCESS PEACH! IT'S A ME, MARIO!"
+    puts "I found you in #{@moves} moves!"
+    puts "Peach: OH MARIO! I KNEW I COULD COUNT ON YOU TO FIND ME IN THE OPTIMAL NUMBER OF MOVES!\n"
   end
 
   def get_direction(mario, peach)
