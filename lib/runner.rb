@@ -29,7 +29,7 @@ end
 def play
   game = Game.new
   board = game.board
-  game.displayPathtoPrincess
+  board.displayPathtoPrincess
   puts "Mario: PRINCESS PEACH! IT'S A ME, MARIO!"
   sleep(1)
   puts "I found you in #{board.moves.length} moves!"
