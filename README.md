@@ -7,7 +7,7 @@
 
 ## Introduction
 
-This repo contains solutions for the Hacker Rank [Bot Saves Princess](https://www.hackerrank.com/challenges/saveprincess2) [challenges](https://www.hackerrank.com/challenges/saveprincess2), as well as a simple test suite for checking results locally. I had a blast designing and optimizing these solutions to be both efficient and readable. I encountered the most difficulty not in the solutions themselves, but in my local Ruby environment, which despite my persistent reinstallation and configuration efforts, was not cooperating in a timely manner. I had to try a different approach, so I opted to try Docker as a solution to my configuration woes. Although I hadn't made my own Dockerfile before, I was able to get one spun up pretty quickly and easily, and greatly appreciate the simple and powerful functionality it afforded me. If I had had more time to dedicate to this project, I would have liked to create a terminal game to help visualize the code's execution, but we will have to settle for verification of the code's functionality via Hacker Rank and the test suite.
+This repo contains solutions for the Hacker Rank [Bot Saves Princess](https://www.hackerrank.com/challenges/saveprincess2) [challenges](https://www.hackerrank.com/challenges/saveprincess2), as well as a simple test suite for checking results locally. I had a blast designing and optimizing these solutions to be both efficient and readable. I encountered the most difficulty not in the solutions themselves, but in my local Ruby environment, which despite my persistent reinstallation and configuration efforts, was not cooperating in a timely manner. I had to try a different approach, so I opted to try Docker as a solution to my configuration woes. Although I hadn't made my own Dockerfile before, I was able to get one spun up pretty quickly and easily, and greatly appreciate the simple and powerful functionality it afforded me. After submitting the Hacker Rank solutions in main as my MVP, I went ahead and did a playable terminal version in the "extension" branch to showcase some OOP functionality.
 
 
 ## The Solutions
@@ -140,6 +140,8 @@ end
 
 #### Using The Dockerfile
 
+If you're not set up to run ruby on your computer, Docker makes it easy by providing a container that can handle anything. 
+
 First, clone this repo and cd into the root directory:
 
 `git clone git@github.com:abwmn/bot_saves_princess.git`
@@ -150,14 +152,8 @@ Next, run the following command to create the Docker image:
 
 `docker build -t andrew-code-challenge .`
 
-Now you can run the test suite through the Docker container using:
+Now open the Docker container using:
 
-`docker run andrew-code-challenge`
+`docker run -it andrew-code-challenge`
 
-Or, you can bash into the container itself and run tests individually using:
-
-`docker run -it --rm -v $(pwd):/app andrew-code-challenge /bin/bash`
-
-Now that you're in the Docker container, you can run the specs using:
-
-`bundle exec rspec spec/`
+If you are in main, Docker will run the test suite for the Hacker Rank solutions. If you're in the extension branch, it will run the playable game for you. Have fun!
