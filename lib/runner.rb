@@ -2,6 +2,7 @@ require_relative 'board'
 require_relative 'game'
 
 def welcome
+  puts "\e[H\e[2J"
   puts "WELCOME TO MARIO'S GROUNDHOG DAY!\n\n"
   sleep(2)
   puts "Watch Mario save the princess from grids of various sizes!"
@@ -33,7 +34,7 @@ def play
 end
 
 def quit
-  puts "\nThanks for watching! See you later!"
+  puts "\nOkey dokey! See you later!"
   exit
 end
 
