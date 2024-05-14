@@ -7,7 +7,7 @@ end
 def peach_position(grid)
   grid.each_with_index do |string, row|
       col = string.index("p")
-      return {:peach_row => row, :peach_col => col} if col
+      return {peach_row: row, peach_col: col} if col
   end
 end
 
