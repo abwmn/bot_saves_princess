@@ -1,9 +1,10 @@
 require_relative 'board'
 
 class Game
-  attr_reader :board, :moves
+  attr_reader :board, :moves, :mode
 
-  def initialize(mode=["random", "corner"].sample)
+  def initialize(mode=["Random", "Corner"].sample)
+    @mode = mode
     @board = Board.new(mode)
     @moves = 0
   end
@@ -15,9 +16,11 @@ class Game
       @board.move_mario(move)
       @moves += 1
       @board.render
+      puts "Mode: #{@mode}"
+      puts "Size: #{@board.size}"
       puts "Last move: " + move + "!"
       puts "Moves made: #{@moves}"
-      sleep(0.2)
+      sleep(0.1)
     end
     @board.render
     puts "Mario: PRINCESS PEACH! IT'S A ME, MARIO!"

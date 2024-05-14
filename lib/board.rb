@@ -3,11 +3,11 @@ class Board
   attr_accessor :peach, :mario
   
   def initialize(mode)
-    if mode == "random" 
-      @size = rand(2..99)
+    if mode == "Random" 
+      @size = rand(2..49)
       make_random_grid(@size)
     else
-      @size = (1..49).map { |i| i * 2 + 1 }.sample
+      @size = (1..24).map { |i| i * 2 + 1 }.sample
       make_corner_grid(@size)
     end
   end
