@@ -5,8 +5,8 @@ def nextMove(n,r,c,grid)
 end
 
 def peach_position(grid)
-  grid.each_with_index do |chars, row|
-      col = chars.index("p")
+  grid.each_with_index do |string, row|
+      col = string.index("p")
       return {:peach_row => row, :peach_col => col} if col
   end
 end
