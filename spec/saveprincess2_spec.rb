@@ -69,7 +69,7 @@ RSpec.describe "Bot Saves Princess 2 Solution" do
     travel_to_peach(grid50)
     expect(@mario).to eq(@peach)
 
-    grid100 = place_chars(grid(100))
+    grid100 = place_chars(grid(99))
     expect(@mario).not_to eq(@peach)
     travel_to_peach(grid100)
     expect(@mario).to eq(@peach)
