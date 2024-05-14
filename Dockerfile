@@ -8,4 +8,4 @@ RUN bundle install
 
 COPY . .
 
-CMD ["ruby", "runner.rb"]
+CMD ["ruby", "./lib/runner.rb"]
