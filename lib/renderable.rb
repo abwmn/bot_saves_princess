@@ -19,9 +19,10 @@ module Renderable
   end
 
   def display_stats
-    puts "Mode: #{@mode}"
-    puts "Size: #{@size}"
-    puts "Last move: #{@moves.last}!"
-    puts "Moves made: #{@moves.length}"
+    puts "Mode: #{@mode} ; Size: #{@size}"
+    puts "Last move: #{@moves.last} ; Moves made: #{@moves.length}"
+    puts "Peach Row: #{@peach[:row]} ; Peach Col: #{@peach[:col]}"
+    puts "Mario Row: #{@mario[:row]} ; Mario Col: #{@mario[:col]}"
+    puts "Distance to Peach: #{(@peach[:row] - @mario[:row]).abs + (@peach[:col] - @mario[:col]).abs} moves"
   end
 end
