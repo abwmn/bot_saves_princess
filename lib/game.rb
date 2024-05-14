@@ -16,7 +16,7 @@ class Game
       @moves += 1
       @board.render
       puts "Last move: " + move + "!"
-      puts "Moves made: " + @moves
+      puts "Moves made: #{@moves}"
       sleep(0.2)
     end
     @board.render
