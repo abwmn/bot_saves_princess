@@ -12,11 +12,11 @@ module Movable
     @mario[:col] == @peach[:col] ? row_move : col_move
   end
   
-  def col_move(mario, peach)
+  def col_move
     @mario[:col] - @peach[:col] > 0 ? "LEFT" : "RIGHT"
   end
   
-  def row_move(mario, peach)
+  def row_move
     @mario[:row] - @peach[:row] > 0 ? "UP" : "DOWN"
   end
 
